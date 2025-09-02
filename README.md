@@ -1,6 +1,6 @@
 # awsp
 
-A handy script to switch/manage different AWS profiles from the CLI.
+A handy script to switch/manage different AWS profiles from the CLI. Requires the [AWS CLI](https://aws.amazon.com/cli/) to be installed (obviously).
 
 Arguments:
 
@@ -9,6 +9,10 @@ Arguments:
 - `ls` or `list`: Lists AWS profiles the user has configured in the CLI along with their SSO statuses.
 - `clear`: Unsets `$AWS_PROFILE`.
 
-If running on Linux, change `pbcopy` to `xclip -selection clipboard` and `sysctl -n hw.ncpu` to `nproc`.
+It's recommended to add the alias `alias awsp='. ~/path/to/awsp/awsp.sh'` to your bashrc, zshrc, etc. to easily run the script.
 
-Requires the AWS CLI to be installed (obviously).
+> [!NOTE]
+> When pulling SSO statuses in `awsp ls`, the script defaults to using the number of available cores as the concurrency limit. This can be overridden by setting the `AWSP_CONCURRENCY` environment variable to whatever value you want.
+
+> [!NOTE]
+> If running on Linux, change `pbcopy` to `xclip -selection clipboard` and `sysctl -n hw.ncpu` to `nproc`.
